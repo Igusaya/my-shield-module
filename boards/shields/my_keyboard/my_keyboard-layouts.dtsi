@@ -1,0 +1,39 @@
+#include <physical_layouts.dtsi>
+
+
+/*
+すべての物理レイアウトには行列変換が必要であり、オプションで kscan も持つことができます。
+慣例により、これらは行列変換と kscan が定義されているファイル内の物理レイアウトに割り当てられます。
+*/
+
+/ {
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Default Layout";
+    };
+
+    /*
+    keysプロパティに割り当てられているのは、キーマップのバインディングや行列変換などと同じ順序で並べられたキー記述の配列である。
+    キー記述は、以下のプロパティを持つ <&key_physical_attrs w h x y r rx ry> の形状を持つ。
+
+    Property	Type	    Description	                            Unit
+    Width	    int (>0)	Key(cap) width	                        centi-"keyunit"
+    Height	    int (>0)    Key(cap) height	                        centi-"keyunit"
+    X	        uint	    Key X position (top-left point)	        centi-"keyunit"
+    Y	        uint	    Key Y position (top-left point)	        centi-"keyunit"
+    Rotation	int	        Key rotation (positive => clockwise)	centi-degree
+    Rotation X	int	        Rotation origin X position	            centi-"keyunit"
+    Rotation Y	int	        Rotation origin Y position	            centi-"keyunit"    
+    */
+    keys  //                         w   h    x    y     rot    rx    ry
+            = <&key_physical_attrs 100 100    0    0       0     0     0>
+            , <&key_physical_attrs 100 100  100    0       0     0     0>
+            , <&key_physical_attrs 100 100  200    0       0     0     0>
+            , <&key_physical_attrs 100 100    0  100       0     0     0>
+            , <&key_physical_attrs 100 100  100  100       0     0     0>
+            , <&key_physical_attrs 100 100  200  100       0     0     0>
+            , <&key_physical_attrs 100 100    0  200       0     0     0>
+            , <&key_physical_attrs 100 100  100  200       0     0     0>
+            , <&key_physical_attrs 100 100  200  200       0     0     0>
+            ;
+};

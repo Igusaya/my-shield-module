@@ -1,0 +1,7 @@
+if SHIELD_MY_KEYBOARD
+
+# 名前は16文字以内
+config ZMK_KEYBOARD_NAME
+    default "My Keyboard"
+
+endif

@@ -1,0 +1,9 @@
+file_format: "1"
+id: my_keyboard
+name: MyKeyboard
+type: shield
+url: https://github.com/Igusaya/my-shield-module
+requires: [seeed_xiao]
+features:
+  - keys
+  - studio

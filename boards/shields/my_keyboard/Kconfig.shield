@@ -1,0 +1,3 @@
+# カンマの後、キーボード名には空白禁止。
+config SHIELD_MY_KEYBOARD
+    def_bool $(shields_list_contains,my_keyboard)

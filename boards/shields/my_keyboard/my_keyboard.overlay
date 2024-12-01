@@ -1,0 +1,49 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include "my_keyboard-layouts.dtsi"
+
+&physical_layout0 {
+    kscan = <&kscan0>;
+    transform = <&matrix_transform0>;
+};
+
+/ {
+    // 選択したノードを、定義された「デフォルト」物理レイアウトに設��します。 
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &physical_layout0;
+        // Other chosen items
+    };
+
+    kscan0: kscan0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        wakeup-source;
+
+        col-gpios
+            = <&xiao_d 4 GPIO_ACTIVE_HIGH>
+            , <&xiao_d 5 GPIO_ACTIVE_HIGH>
+            , <&xiao_d 6 GPIO_ACTIVE_HIGH>
+            ;
+
+        row-gpios
+            = <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+    };
+
+    // マトリクス変換   
+    matrix_transform0: keymap_transform0 {
+        compatible = "zmk,matrix-transform";
+        columns = <3>; // Length of the "col-gpios" array
+        rows = <3>; // Length of the "row-gpios" array
+        map = <
+        //   Key 1 | Key 2 | Key 3
+            RC(0,0) RC(0,1) RC(0,2)
+        //   Key 4 | Key 5 | Key 6
+            RC(1,0) RC(1,1) RC(1,2)
+        //   Key 7 | Key 8 | Key 9
+            RC(2,0) RC(2,1) RC(2,2)
+        >;
+    };
+};
