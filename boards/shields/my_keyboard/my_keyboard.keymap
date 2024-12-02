@@ -38,8 +38,8 @@
             // |     $     |     %     |     ^     |
             // |   Lower   |     E     |   Raise   |
             bindings = <
-                &kp !          &kp @     &kp #
-                &kp $          &kp %     &kp ^
+                &kp EXCL       &kp AT    &kp HASH
+                &kp DLLR       &kp PRCNT &kp CARET
                 &mo LOWER      &kp E     &mo RAISE
             >;
         };
