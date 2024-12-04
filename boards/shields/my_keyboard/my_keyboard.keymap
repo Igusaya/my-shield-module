@@ -1,5 +1,10 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define DEFAULT 0
+#define LOWER   1
+#define RAISE   2
 
 / {
     keymap {
@@ -9,11 +14,33 @@
             // -------------------------------------
             // |     Z     |     M     |     K     |
             // |     A     |     B     |     C     |
-            // |     D     |     E     |     F     |
+            // |   Lower   |     E     |   Raise   |
             bindings = <
-                &kp Z    &kp M    &kp K
-                &kp A    &kp B    &kp C
-                &kp D    &kp E    &kp F
+                &kp Z          &kp M     &kp K
+                &kp A          &kp B     &kp C
+                &mo LOWER      &kp E     &mo RAISE
+            >;
+        };
+        lower_layer { // Layer 1
+            // -------------------------------------
+            // | BT_SEL 0  | BT_SEL 1  | BT_SEL 2  |
+            // |  BT_CLR   |     5     |     6     |
+            // |   Lower   |     E     |   Raise   |
+            bindings = <
+                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
+                &bt BT_CLR    &kp 5         &kp 6
+                &mo LOWER     &kp E         &mo RAISE
+            >;
+        };  
+        raise_layer { // Layer 2
+            // -------------------------------------
+            // |     !     |     @     |     #     |
+            // |     $     |     %     |     ^     |
+            // |   Lower   |     E     |   Raise   |
+            bindings = <
+                &kp EXCL      &kp AT      &kp HASH
+                &kp DLLR      &kp PRCNT   &kp CARET
+                &mo LOWER     &kp E       &mo RAISE
             >;
         };
     };
