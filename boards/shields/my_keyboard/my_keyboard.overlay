@@ -7,7 +7,7 @@
 };
 
 / {
-    // 選択したノードを、定義された「デフォルト」物理レイアウトに設��します。 
+    // 選択したノードを、定義された「デフォルト」物理レイアウトに設定します。 
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout0;
